@@ -7,15 +7,16 @@ I've recently started publishing small, reusable React components to npm and aft
 # Prerequisites
 * Obviously Node and npm should be installed
 * You need to have a private account at npm. create an account <a href="https://www.npmjs.com/signup">here</a> if you don't have one already. and <a href="https://docs.npmjs.com/creating-a-new-npm-user-account#testing-your-new-account-with-npm-login">here</a> is how to login to npm in your local machine.
-* Before you choose a name for your component or library, look for it in <a href="https://www.npmjs.com">npm</a> and see if it's available. if not, choose a different name or consider using a context. 
-
-# Setup
-* Create a new repository for your component, if you don't have one already, and clone it locally.
-* At the root of your repo run `npm init` to create your package.json file.
+* Before you choose a name for your component or library, look for it in <a href="https://www.npmjs.com">npm</a> and see if it's available. if not, choose a different name or consider using a context.
 * If not installed, install <a href="https://rollupjs.org/guide/en/">rollup</a> globally:
 ```
 npm i -g rollup
 ```
+
+# Setup
+* Create a new repository for your component, if you don't have one already, and clone it locally.
+* At the root of your repo run `npm init` to create your package.json file.
+
 * Create your basic file structure. for this example we will assume a `src` folder for the source files, and a `dist` folder for the build.
 * Create your main component file. here we'll call it `src/ReactPublishGuide.jsx`.
 * Install `react` and `react-dom` for development
@@ -48,6 +49,11 @@ export default {
 ```
 Remember to replace `src/ReactPublishGuide.jsx` with your own component source file name and `dist/ReactPublishGuide.js` with the name that you want your build file to have.
 if you use peer dependencies other then `react` and `react-dom` you should add them to the `external` array.
+Run the bundler:
+```
+rollup -c
+```
+And see that the build file was created.
 
 # .npmignore
 An `.npmignore` file works just like a `.gitignore` and tells npm which files and folders should not be uploaded to the registry. any files that are used for your development but are not required for your component to work should be listed here. this includes all source files, demos and dev configs.
@@ -75,7 +81,7 @@ To publish to npm, from the root of your project, run:
 ```
 npm publish
 ```
-When you publish again you will need to update the version number in your package.json file.
+Before you publish again you will need to update the version number in your package.json file.
 
 
 
